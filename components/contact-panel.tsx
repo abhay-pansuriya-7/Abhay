@@ -8,7 +8,7 @@ export function ContactPanel() {
   const email = "you@example.com"
   const subject = "Project inquiry from your portfolio"
   const body =
-    "Hi Your Name,%0D%0A%0D%0AI'd like to discuss a project. Here are a few details:%0D%0A- Scope:%0D%0A- Timeline:%0D%0A- Budget:%0D%0A%0D%0AThanks!"
+    "Hi Abhay ,%0D%0A%0D%0AI'd like to discuss a project. Here are a few details:%0D%0A- Scope:%0D%0A- Timeline:%0D%0A- Budget:%0D%0A%0D%0AThanks!"
   const mailtoHref = useMemo(() => `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`, [email])
 
   return (

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { MessageCircle, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 type Message = { role: "user" | "assistant"; content: string }
 
@@ -42,6 +43,16 @@ export function Chatbot() {
   ])
   const [input, setInput] = useState("")
   const listRef = useRef<HTMLDivElement>(null)
+  const [showDots, setShowDots] = useState(false)
+
+  useEffect(() => {
+    if (!open) {
+      const interval = setInterval(() => {
+        setShowDots((prev) => !prev)
+      }, 2500) // Change every 2.5s
+      return () => clearInterval(interval)
+    }
+  }, [open])
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" })
@@ -111,23 +122,45 @@ export function Chatbot() {
             !open && "chat-glow", // glow only when closed
           )}
         >
-          {open ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <>
-              <MessageCircle className="h-7 w-7" aria-hidden="true" />
-              <span
-                className="absolute -bottom-2 right-1 rounded-full bg-background/80 px-2 py-1 shadow-sm border"
-                aria-hidden="true"
+          <AnimatePresence mode="wait" initial={false}>
+            {open ? (
+              <motion.div
+                key="x"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
+              </motion.div>
+            ) : showDots ? (
+              <motion.div
+                key="dots"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.6 }}
+                transition={{ duration: 0.3 }}
               >
                 <span className="typing-dots">
                   <span className="dot"></span>
                   <span className="dot"></span>
                   <span className="dot"></span>
                 </span>
-              </span>
-            </>
-          )}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="icon"
+                initial={{ opacity: 0, rotate: -20, scale: 0.8 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 20, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+              >
+                <MessageCircle className="h-7 w-7" aria-hidden="true" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+
           <span
             className="pointer-events-none absolute inset-0 rounded-full"
             aria-hidden="true"

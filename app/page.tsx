@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ProjectsPreview } from "@/components/projects-preview"
@@ -5,6 +6,11 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Chatbot } from "@/components/chatbot"
 import { ArrowRight } from "lucide-react"
+import dynamic from 'next/dynamic';
+
+const FloatingDotsBackground = dynamic(() => import('@/components/ui/canvasBG'), {
+  ssr: false,
+});
 
 export default function HomePage() {
   return (
@@ -12,17 +18,14 @@ export default function HomePage() {
       <SiteHeader />
       <section className="relative px-6 md:px-8 lg:px-10 py-12 md:py-16 border-b overflow-hidden light-surface">
         {/* gradient aura */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-40 dark:opacity-30">
-          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full blur-3xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)]" />
-          <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full blur-3xl bg-gradient-to-tr from-[var(--color-accent)] to-[var(--color-primary)]" />
-        </div>
+        <FloatingDotsBackground />
 
         <div className="max-w-5xl mx-auto flex flex-col gap-6">
           <p className="text-sm text-muted-foreground animate-fade-in-up [animation-delay:40ms]">MERN Developer</p>
           <h1 className="text-3xl md:text-5xl font-semibold text-pretty animate-fade-in-up [animation-delay:80ms]">
             Hi, I’m{" "}
             <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
-              Your Name
+              Abhay
             </span>
             . I build fast, reliable web apps with MongoDB, Express, React, and Node.
           </h1>

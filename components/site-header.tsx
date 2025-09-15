@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Github, Linkedin, Mail } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
 
 const nav = [
   { href: "/", label: "Home" },
@@ -19,8 +18,8 @@ export function SiteHeader() {
       <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 h-14 flex items-center justify-between">
         {/* Subtle gradient brand for a premium feel */}
         <Link href="/" className="font-semibold">
-          <span className="bg-gradient-to-r from-[#2563eb] to-[#14b8a6] bg-clip-text text-transparent">
-            {"<"}YourName / MERN Dev{">"}
+          <span className="bg-gradient-to-r from-[#824ff8be] to-[#9c6ef1] bg-clip-text text-transparent text-2xl">
+            {"<"}Abhay /{">"}
           </span>
         </Link>
 
@@ -67,7 +66,7 @@ export function SiteHeader() {
           >
             <Mail className="h-4 w-4" />
           </Link>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
       </div>
     </header>

@@ -8,10 +8,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import { Chatbot } from "@/components/chatbot" // mount chatbot globally
 
+
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Abhay Pansuriya",
+  description:
+    "Expert web developer specializing in modern web technologies and building cutting-edge Generative AI applications.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -6,14 +6,15 @@ import { SiteFooter } from "@/components/site-footer"
 import { projects } from "@/data/projects"
 import { Button } from "@/components/ui/button"
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
 
-export function generateMetadata({ params }: Props) {
-  const p = projects.find((x) => x.slug === params.slug)
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
+  const p = projects.find((x) => x.slug === slug)
   if (!p) return {}
   return {
     title: `${p.title} — Projects`,
@@ -21,8 +22,9 @@ export function generateMetadata({ params }: Props) {
   }
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug)
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) return notFound()
 
   return (
