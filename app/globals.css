@@ -362,10 +362,62 @@ html:not(.dark) .light-surface {
   0% {
     transform: translate(0, 0);
   }
+
   50% {
     transform: translate(10px, -10px);
   }
+
   100% {
     transform: translate(-10px, 10px);
   }
+}
+
+
+@keyframes typing {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.typing-indicator {
+  animation: typing 1.5s infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
 }
