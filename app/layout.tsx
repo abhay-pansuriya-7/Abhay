@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
-import { ChatbotWrapper } from "@/components/chatbot/chatbot-wrapper"
+import { Chatbot } from "@/components/chatbot" // mount chatbot globally
 
 
 export const metadata: Metadata = {
@@ -15,13 +15,7 @@ export const metadata: Metadata = {
     "Expert web developer specializing in modern web technologies and building cutting-edge Generative AI applications.",
 }
 
-export default function RootLayout({ 
-  children,
-  modal
-}: { 
-  children: React.ReactNode
-  modal: React.ReactNode 
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -31,9 +25,7 @@ export default function RootLayout({
           {/* ThemeProvider handles attribute, storage and transitions internally */}
           <ThemeProvider>
             {children}
-            {modal}
-            
-            <ChatbotWrapper />
+            <Chatbot />
             <Analytics />
           </ThemeProvider>
         </Suspense>
