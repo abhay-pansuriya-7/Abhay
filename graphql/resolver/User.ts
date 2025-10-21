@@ -71,7 +71,7 @@ const UserResolvers = {
                 };
             }
         }),
-        deleteUser: async (_: any, { id }: { id: string }) => {
+        deleteUser: composeMiddleware(isAuthenticated)(async (_: any, { id }: { id: string }) => {
             try {
                 // Soft delete by updating a flag
                 // Note: Since there's no isDeleted field in the schema, you might want to add it
@@ -97,7 +97,7 @@ const UserResolvers = {
                     message: err?.message ?? "Something went wrong while deleting user"
                 };
             }
-        },
+        }),
     },
 };
 

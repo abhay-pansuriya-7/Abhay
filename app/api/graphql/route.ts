@@ -6,11 +6,10 @@ import { NextRequest } from 'next/server';
 import { DB } from '@/db/drizzle';
 import { users } from '@/db/schemas';
 import { eq } from 'drizzle-orm';
-import { cookies } from 'next/headers';
-const { verify } = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 // JWT Secret - should be in environment variables in production
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || '';
 
 // 🚀 Create Apollo Server instance once (singleton pattern)
 const server = new ApolloServer({
@@ -36,7 +35,7 @@ const server = new ApolloServer({
 async function getUserFromToken(token: string) {
     try {
         // Verify the token
-        const decoded = verify(token, JWT_SECRET) as { userId: string };
+        const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
 
         // Get user from database
         const user = await DB.select().from(users).where(eq(users.id, decoded.userId)).limit(1);
@@ -50,14 +49,9 @@ async function getUserFromToken(token: string) {
 
 // 🚀 Create handler once (not per request)
 const handler = startServerAndCreateNextHandler(server, {
-    context: async (req: NextRequest) => {
-        // Get auth token from cookies or authorization header
-        const cookieStore = await cookies();
-        const authToken = cookieStore.get('x-token')?.value || '';
-
-        // Get user from token if available
+    context: async (req: NextRequest) => {        
+        const authToken = req.headers.get("x-token") || '';                    
         const user = authToken ? await getUserFromToken(authToken) : null;
-
         return { db: DB, user, headers: req.headers, };
     },
 });
@@ -82,7 +76,7 @@ export async function POST(request: NextRequest): Promise<Response> {
 }
 
 // 🚀 Add OPTIONS for CORS (if needed)
-export async function OPTIONS(request: NextRequest): Promise<Response> {
+export async function OPTIONS(): Promise<Response> {
     return new Response(null, {
         status: 200,
         headers: {

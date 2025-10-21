@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ApolloClientProvider } from "@/components/apollo-provider"
 import { Suspense } from "react"
 import { Chatbot } from "@/components/chatbot" // mount chatbot globally
 
@@ -23,11 +24,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Suspense fallback={null}>
           {/* ThemeProvider handles attribute, storage and transitions internally */}
-          <ThemeProvider>
-            {children}
-            <Chatbot />
-            <Analytics />
-          </ThemeProvider>
+          <ApolloClientProvider>
+            <ThemeProvider>
+              {children}
+              <Chatbot />
+              <Analytics />
+            </ThemeProvider>
+          </ApolloClientProvider>
         </Suspense>
       </body>
     </html>

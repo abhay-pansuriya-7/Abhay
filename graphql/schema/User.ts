@@ -2,7 +2,9 @@ const UserSchema = `
    type User {
     id: String
     firstName: String
+    isAdmin:Boolean
     lastName: String
+    userName: String
     email: String    
     profilePicture: String
     phoneNo: String    

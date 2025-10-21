@@ -1,13 +1,14 @@
 import UserResolvers from './User';
-
-// import { ProductResolvers } from './Product';
+import ProjectResolvers from './Project';
 
 // Merge resolvers
 export const resolvers = {
     Query: {
         ...UserResolvers.Query,
+        ...ProjectResolvers.Query,
     },
     Mutation: {
         ...UserResolvers.Mutation,
+        ...ProjectResolvers.Mutation,
     },
 };

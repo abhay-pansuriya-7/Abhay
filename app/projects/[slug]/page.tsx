@@ -4,7 +4,7 @@ import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { projects } from "@/data/projects"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/button"
 
 type Props = { params: Promise<{ slug: string }> }
 

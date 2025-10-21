@@ -1,4 +1,5 @@
 import User from './User';
+import { ProjectSchema } from './Project';
 
 // Base schema that includes shared types, enums, interfaces, etc.
 const baseTypeDefs = `
@@ -13,5 +14,6 @@ const baseTypeDefs = `
 
 export const typeDefs = [
   baseTypeDefs,
-  User,  
+  User,
+  ProjectSchema,
 ];

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { MessageCircle, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"

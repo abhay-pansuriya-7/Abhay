@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ProjectsGrid } from "./projects-grid"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/button"
 
 export function ProjectsPreview() {
   return (

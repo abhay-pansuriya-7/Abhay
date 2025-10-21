@@ -1,12 +1,17 @@
 "use client"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/button"
 import { ProjectsPreview } from "@/components/projects-preview"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Chatbot } from "@/components/chatbot"
 import { ArrowRight } from "lucide-react"
 import dynamic from 'next/dynamic';
+import ProfileHero from "@/components/hero/components/ProfileHero"
+import SkillsMatrix from "@/components/hero/components/SkillsMatrix"
+import CallToAction from "@/components/hero/components/CallToAction"
+import PersonalInterests from "@/components/hero/components/PersonalInterests"
+import PersonalStory from "@/components/hero/components/PersonalStory"
 
 const FloatingDotsBackground = dynamic(() => import('@/components/ui/canvasBG'), {
   ssr: false,
@@ -17,36 +22,13 @@ export default function HomePage() {
     <main className="min-h-dvh flex flex-col">
       <SiteHeader />
       <section className="relative px-6 md:px-8 lg:px-10 py-12 md:py-16 border-b overflow-hidden light-surface">
-        {/* gradient aura */}
         <FloatingDotsBackground />
-
-        <div className="max-w-5xl mx-auto flex flex-col gap-6">
-          <p className="text-sm text-muted-foreground animate-fade-in-up [animation-delay:40ms]">MERN Developer</p>
-          <h1 className="text-3xl md:text-5xl font-semibold text-pretty animate-fade-in-up [animation-delay:80ms]">
-            Hi, I’m{" "}
-            <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
-              Abhay
-            </span>
-            . I build fast, reliable web apps with MongoDB, Express, React, and Node.
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl animate-fade-in-up [animation-delay:120ms]">
-            I focus on performance, clean architecture, and great UX. Explore selected projects below or get in touch.
-          </p>
-          <div className="flex flex-wrap gap-3 animate-fade-in-up [animation-delay:160ms]">
-            <Button asChild>
-              <Link href="/projects" className="inline-flex items-center gap-2">
-                View Projects <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/contact" className="inline-flex items-center gap-2">
-                Contact Me <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
+        <ProfileHero />
       </section>
-
+      <SkillsMatrix />
+      <CallToAction />
+      {/* <PersonalInterests /> */}
+      <PersonalStory />
       <ProjectsPreview />
 
       <section className="px-6 md:px-8 lg:px-10 py-12 md:py-16 border-t">
@@ -62,7 +44,7 @@ export default function HomePage() {
       </section>
 
       <SiteFooter />
-      <Chatbot />
+      {/* <Chatbot /> */}
     </main>
   )
 }
