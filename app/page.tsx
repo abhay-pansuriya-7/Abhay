@@ -4,13 +4,10 @@ import Button from "@/components/ui/button"
 import { ProjectsPreview } from "@/components/projects-preview"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { Chatbot } from "@/components/chatbot"
-import { ArrowRight } from "lucide-react"
 import dynamic from 'next/dynamic';
 import ProfileHero from "@/components/hero/components/ProfileHero"
 import SkillsMatrix from "@/components/hero/components/SkillsMatrix"
 import CallToAction from "@/components/hero/components/CallToAction"
-import PersonalInterests from "@/components/hero/components/PersonalInterests"
 import PersonalStory from "@/components/hero/components/PersonalStory"
 
 const FloatingDotsBackground = dynamic(() => import('@/components/ui/canvasBG'), {

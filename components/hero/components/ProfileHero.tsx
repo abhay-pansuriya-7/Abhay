@@ -39,7 +39,7 @@ const ProfileHero = () => {
                         </div>
 
                         <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                            Hi, I'm{' '}
+                            Hi, I&apos;m{' '}
                             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                                 Abhay Pansuriya
                             </span>
@@ -60,7 +60,7 @@ const ProfileHero = () => {
                                 iconPosition="left"
                             >
 
-                                Let's Connect
+                                Let&apos;s Connect
                             </Button>
                             <Button
                                 variant="outline"

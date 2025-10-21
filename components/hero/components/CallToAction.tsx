@@ -14,7 +14,7 @@ const CallToAction = () => {
     variant: "default" | "outline" | "link" | "destructive" | "secondary" | "ghost" | "success" | "warning" | "danger";
   }> = [
     {
-      title: "Let\'s Discuss Your Project",
+      title: "Let&apos;s Discuss Your Project",
       description: "Ready to bring your ideas to life? I'd love to hear about your project and explore how we can work together.",
       icon: "MessageCircle",
       action: "Start Conversation",
@@ -47,12 +47,12 @@ const CallToAction = () => {
             Ready to Work Together?
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            I'm always excited to take on new challenges and collaborate with passionate teams. Let's create something amazing together.
+            I&apos;m always excited to take on new challenges and collaborate with passionate teams. Let&apos;s create something amazing together.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {contactMethods?.map((method, index) => (
+          {contactMethods?.map((method) => (
             <div
               key={method?.title}
               className="bg-card border border-border rounded-2xl p-8 text-center hover:shadow-elevation transition-all duration-300 group"
@@ -83,7 +83,7 @@ const CallToAction = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4">
-                Let's Connect Directly
+                Let&apos;s Connect Directly
               </h3>
               <p className="text-text-secondary mb-6">
                 Prefer a more direct approach? Feel free to reach out through any of these channels. 

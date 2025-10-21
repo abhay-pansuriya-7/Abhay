@@ -42,7 +42,7 @@ const SkillsMatrix = () => {
     }
   ];
 
-  const getSkillColor = (level:any) => {
+  const getSkillColor = (level: number) => {
     if (level >= 90) return "from-success to-emerald-400";
     if (level >= 80) return "from-primary to-blue-400";
     if (level >= 70) return "from-warning to-yellow-400";
@@ -136,7 +136,7 @@ const SkillsMatrix = () => {
                 year: "2023",
                 icon: "Users"
               }
-            ] as Array<{ title: string; issuer: string; year: string; icon: React.ComponentProps<typeof Icon>["name"] }> )?.map((cert, index) => (
+            ] as Array<{ title: string; issuer: string; year: string; icon: React.ComponentProps<typeof Icon>["name"] }> )?.map((cert) => (
               <div
                 key={cert?.title}
                 className="bg-card border border-border rounded-xl p-6 text-center hover:shadow-soft transition-all duration-300"

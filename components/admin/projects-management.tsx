@@ -68,11 +68,20 @@ interface Project {
   updatedAt: string;
 }
 
+interface GetProjectsResponse {
+  getProjects: {
+    status: boolean;
+    message: string;
+    data: Project[];
+  };
+}
+
+
 export function ProjectsManagement() {
   const [showForm, setShowForm] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
 
-  const { data, loading, error, refetch }: any = useQuery(GET_PROJECTS);
+  const { data, loading, error, refetch } = useQuery<GetProjectsResponse>(GET_PROJECTS);
   const [deleteProject] = useMutation(DELETE_PROJECT);
   const [updateProjectStatus] = useMutation(UPDATE_PROJECT_STATUS);
 

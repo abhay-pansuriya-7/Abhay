@@ -20,7 +20,7 @@ function Icon({
     color?: string;
     className?: string;
     strokeWidth?: number;
-    [key: string]: any;
+    [key: string]: unknown;
 }) {
     const IconComponent = LucideIcons[name] as unknown as LucideIcon | undefined;
 

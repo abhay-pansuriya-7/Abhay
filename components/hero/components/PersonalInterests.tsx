@@ -88,7 +88,7 @@ const PersonalInterests = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {interests?.map((interest, index) =>
+            {interests?.map((interest) =>
             <div
               key={interest?.title}
               className="group bg-card border border-border rounded-2xl overflow-hidden shadow-soft hover:shadow-elevation transition-all duration-300">
@@ -131,7 +131,7 @@ const PersonalInterests = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values?.map((value, index) =>
+            {values?.map((value) =>
             <div
               key={value?.title}
               className="bg-gradient-to-br from-muted to-surface border border-border rounded-2xl p-6 text-center hover:shadow-soft transition-all duration-300 group">

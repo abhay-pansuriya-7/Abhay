@@ -31,6 +31,8 @@ mutation Login($input: LoginInput) {
 }
 `
 
+
+
 interface FormData {
 	email: string;
 	password: string;
@@ -43,6 +45,28 @@ interface FormErrors {
 	general?: string;
 }
 
+interface UserData {
+	id: string;
+	firstName: string;
+	lastName: string;
+	userName: string;
+	email: string;
+	profilePicture: string;
+	phoneNo: string;
+	isAdmin: boolean;
+}
+
+interface LoginResponse {
+	status: boolean;
+	message: string;
+	data?: UserData;
+	token?: string;
+}
+
+interface LoginMutationResponse {
+	login: LoginResponse;
+}
+
 
 export default function AdminLoginPage() {
 	const router = useRouter();
@@ -52,7 +76,7 @@ export default function AdminLoginPage() {
 		remember: false
 	});
 	const [errors, setErrors] = useState<FormErrors>({});
-	const [login, { loading }] = useMutation(LOGIN_MUTATION);
+	const [login, { loading }] = useMutation<LoginMutationResponse>(LOGIN_MUTATION);
 
 	const validateEmail = (email: string): boolean => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -104,7 +128,7 @@ export default function AdminLoginPage() {
 		}
 
 		try {
-			const { data }: any = await login({
+			const { data } = await login({
 				variables: {
 					input: {
 						userName: formData.email, // Using email as userName based on the schema
