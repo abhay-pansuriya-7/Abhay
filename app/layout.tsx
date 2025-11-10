@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ApolloClientProvider>
             <ThemeProvider>
               {children}
-              <Chatbot />
+              {/* <Chatbot /> */}
               <Analytics />
             </ThemeProvider>
           </ApolloClientProvider>

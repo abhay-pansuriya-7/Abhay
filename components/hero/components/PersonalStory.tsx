@@ -9,33 +9,28 @@ const PersonalStory = () => {
     icon: React.ComponentProps<typeof Icon>["name"];
   }> = [
     {
-      year: "2018",
+      year: "2019",
       title: "The Beginning",
-      description: "Started my journey with HTML, CSS, and JavaScript while studying Computer Science. Built my first website for a local bakery.",
+      description: "Started my journey with HTML, CSS, and JavaScript while working as a Shopify developer.",
       icon: "Rocket"
     },
     {
-      year: "2019",
-      title: "React Discovery",
-      description: "Fell in love with React\'s component-based architecture. Created my first SPA for a university project management system.",
+      year: "2020",
+      title: "Shopify Developer",
+      description: "Fell in love with Shopify development and jQuery and started learning backend development with Laravel.",
       icon: "Heart"
     },
-    {
-      year: "2020",
-      title: "Professional Leap",
-      description: "Joined TechCorp as Junior Developer. Learned the importance of clean code, testing, and collaborative development.",
-      icon: "Briefcase"
-    },
+    
     {
       year: "2022",
-      title: "Full Stack Mastery",
-      description: "Expanded into backend development with Node.js and databases. Led my first team project - an e-commerce platform.",
+      title: "MERN Stack Developer",
+      description: "Started learning React and started working as a MERN Stack developer. get my hands dirty with MongoDB, Express.js, React, and Node.js.",
       icon: "Code"
     },
     {
-      year: "2024",
-      title: "Innovation Focus",
-      description: "Currently specializing in modern React patterns, performance optimization, and creating exceptional user experiences.",
+      year: "2025",
+      title: "Sr. Full Stack Developer (Generative AI & LLMs)",
+      description: "Currently working as a Sr. Full Stack Developer . I'm responsible for the full stack development of the company's projects. get my hands dirty with generative AI and LLMs.",
       icon: "Sparkles"
     }
   ];

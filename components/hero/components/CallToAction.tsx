@@ -14,7 +14,7 @@ const CallToAction = () => {
     variant: "default" | "outline" | "link" | "destructive" | "secondary" | "ghost" | "success" | "warning" | "danger";
   }> = [
     {
-      title: "Let&apos;s Discuss Your Project",
+      title: "Let's Discuss Your Project",
       description: "Ready to bring your ideas to life? I'd love to hear about your project and explore how we can work together.",
       icon: "MessageCircle",
       action: "Start Conversation",
@@ -25,8 +25,8 @@ const CallToAction = () => {
       title: "Explore My Work",
       description: "Check out my portfolio to see examples of my development work and the technologies I specialize in.",
       icon: "Eye",
-      action: "View Portfolio",
-      link: "/skills",
+      action: "View Projects",
+      link: "/projects",
       variant: "outline"
     },
     {
@@ -34,7 +34,7 @@ const CallToAction = () => {
       description: "Discover the range of development services I offer and how I can help solve your technical challenges.",
       icon: "Briefcase",
       action: "View Services",
-      link: "/services",
+      link: "/projects",
       variant: "outline"
     }
   ];

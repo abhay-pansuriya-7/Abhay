@@ -35,7 +35,7 @@ const About = () => {
         <PersonalStory />
         
         {/* Skills Matrix & Certifications */}
-        <SkillsMatrix />
+        {/* <SkillsMatrix /> */}
         
         {/* Personal Interests & Values */}
         <PersonalInterests />

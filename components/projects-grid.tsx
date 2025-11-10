@@ -9,7 +9,7 @@ export function ProjectsGrid({ limit }: { limit?: number }) {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {list.map((p, idx) => (
         <Card key={p.slug} className="card-elevate group relative overflow-hidden">
-          <div className="px-4 pt-4">
+          {/* <div className="px-4 pt-4">
             <div
               className="inline-flex items-center justify-center h-10 w-10 rounded-lg ring-1 ring-border"
               style={{
@@ -21,7 +21,7 @@ export function ProjectsGrid({ limit }: { limit?: number }) {
               {idx % 3 === 1 && <Layers className="h-5 w-5 text-primary" aria-hidden="true" />}
               {idx % 3 === 2 && <TerminalSquare className="h-5 w-5 text-primary" aria-hidden="true" />}
             </div>
-          </div>
+          </div> */}
 
           <CardHeader className="pb-2">
             <Link href={`/projects/${p.slug}`} className="hover:underline">

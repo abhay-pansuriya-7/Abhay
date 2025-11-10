@@ -22,7 +22,7 @@ export default function HomePage() {
         <FloatingDotsBackground />
         <ProfileHero />
       </section>
-      <SkillsMatrix />
+      {/* <SkillsMatrix /> */}
       <CallToAction />
       {/* <PersonalInterests /> */}
       <PersonalStory />
@@ -40,8 +40,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SiteFooter />
-      {/* <Chatbot /> */}
+      <SiteFooter />      
     </main>
   )
 }
