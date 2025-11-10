@@ -7,7 +7,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ApolloClientProvider } from "@/components/apollo-provider"
 import { Suspense } from "react"
-import { Chatbot } from "@/components/chatbot" // mount chatbot globally
+// import { Chatbot } from "@/components/chatbot" // mount chatbot globally
 
 
 export const metadata: Metadata = {

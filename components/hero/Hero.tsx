@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // import { Helmet } from 'react-helmet';
 import ProfileHero from './components/ProfileHero';
 import PersonalStory from './components/PersonalStory';
-import SkillsMatrix from './components/SkillsMatrix';
+// import SkillsMatrix from './components/SkillsMatrix';
 import PersonalInterests from './components/PersonalInterests';
 import CallToAction from './components/CallToAction';
 

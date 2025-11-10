@@ -1,13 +1,13 @@
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { projects } from "@/data/projects"
-import { Layers, Rocket, TerminalSquare } from "lucide-react" // add simple icons
+// import { Layers, Rocket, TerminalSquare } from "lucide-react" // add simple icons
 
 export function ProjectsGrid({ limit }: { limit?: number }) {
   const list = typeof limit === "number" ? projects.slice(0, limit) : projects
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {list.map((p, idx) => (
+      {list.map((p) => (
         <Card key={p.slug} className="card-elevate group relative overflow-hidden">
           {/* <div className="px-4 pt-4">
             <div
