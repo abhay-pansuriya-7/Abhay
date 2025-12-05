@@ -6,7 +6,7 @@ import Button from "@/components/ui/button"
 import Icon from "./AppIcon"
 
 export function ContactPanel() {
-  const email = "you@example.com"
+  const email = "abhay.main.email@gmail.com"
   const subject = "Project inquiry from your portfolio"
   const body =
     "Hi Abhay ,%0D%0A%0D%0AI'd like to discuss a project. Here are a few details:%0D%0A- Scope:%0D%0A- Timeline:%0D%0A- Budget:%0D%0A%0D%0AThanks!"

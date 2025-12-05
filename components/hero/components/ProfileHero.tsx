@@ -1,9 +1,19 @@
+"use client";
 import React from 'react';
 import Button from '@/components/ui/button';
 import Image from 'next/image';
 import { Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 const ProfileHero = () => {
+    const handleDownloadResume = () => {
+        const link = document.createElement('a');
+        link.href = '/assets/Resume.pdf';
+        link.download = 'Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
     return (
         <div className="py-16">
             <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -52,22 +62,25 @@ const ProfileHero = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                            <Button
-                                variant="default"
-                                size="lg"
-                                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-soft"
-                                iconName="MessageCircle"
-                                iconPosition="left"
-                            >
+                            <Link href={"/contact"}>
+                                <Button
+                                    variant="default"
+                                    size="lg"
+                                    className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-soft"
+                                    iconName="MessageCircle"
+                                    iconPosition="left"
+                                >
 
-                                Let&apos;s Connect
-                            </Button>
+                                    Let&apos;s Connect
+                                </Button>
+                            </Link>
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="border-border hover:border-primary hover:text-primary"
+                                className="border-border hover:border-primary hover:text-primary cursor-pointer"
                                 iconName="Download"
                                 iconPosition="left"
+                                onClick={handleDownloadResume}
                             >
                                 Download Resume
                             </Button>

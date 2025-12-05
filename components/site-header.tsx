@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -15,7 +15,11 @@ const nav = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+  const email = "abhay.main.email@gmail.com"
+  const subject = "Project inquiry from your portfolio"
+  const body =
+    "Hi Abhay ,%0D%0A%0D%0AI'd like to discuss a project. Here are a few details:%0D%0A- Scope:%0D%0A- Timeline:%0D%0A- Budget:%0D%0A%0D%0AThanks!"
+  const mailtoHref = useMemo(() => `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`, [email])
   return (
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 h-14 flex items-center justify-between">
@@ -55,7 +59,7 @@ export function SiteHeader() {
             <Github className="h-4 w-4" />
           </a>
           <a
-            href="https://linkedin.com/in/yourname"
+            href="https://www.linkedin.com/in/abhay-pansuriya-7815701ab/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -64,7 +68,7 @@ export function SiteHeader() {
             <Linkedin className="h-4 w-4" />
           </a>
           <Link
-            href="/contact"
+            href={mailtoHref}
             aria-label="Contact"
             className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-transparent hover:border-border hover:bg-accent transition-colors"
           >
@@ -116,7 +120,7 @@ export function SiteHeader() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/in/yourname"
+                href="https://www.linkedin.com/in/abhay-pansuriya-7815701ab/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

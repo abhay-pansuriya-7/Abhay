@@ -26,7 +26,7 @@ const faqHints: { test: (t: string) => boolean; reply: string }[] = [
   },
   {
     test: (t) => /contact|email|reach/i.test(t),
-    reply: "The fastest way is email: you@example.com. Or book a quick intro call from the Contact page.",
+    reply: "The fastest way is email: abhay.main.email@gmail.com. Or book a quick intro call from the Contact page.",
   },
 ]
 
